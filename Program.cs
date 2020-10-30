@@ -80,20 +80,14 @@ namespace SudokuSolver
             Console.WriteLine("Solution");
             Console.WriteLine("*****************");
 
-
-            foreach (var row in input)
+            for (int i = 0; i < input.GetLength(0); i++)
             {
-                //Console.WriteLine(row);
+                for (int j = 0; j < input.GetLength(1); j++)
+                {
+                    Console.Write(input[i, j] + " ");
+                }
+                Console.WriteLine();
             }
-
-            //for (int i = 0; i < input.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < input.GetLength(1); j++)
-            //    {
-            //        Console.Write(input[i, j] + " ");
-            //    }
-            //    Console.WriteLine();
-            //}
             Console.WriteLine("*****************");
         }
     }
