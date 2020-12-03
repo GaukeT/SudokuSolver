@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Linq;
 
 namespace SudokuSolver
 {
@@ -22,13 +20,13 @@ namespace SudokuSolver
         }
         static void Solve() 
         {
-            for (int y = 0; y < 9; y++)
+            for (var y = 0; y < 9; y++)
             {
-                for (int x = 0; x < 9; x++)
+                for (var x = 0; x < 9; x++)
                 {
                     if (INPUT[y,x] == 0) {
                         // try every possibility for this position
-                        for (int n = 1; n < 10; n++) 
+                        for (var n = 1; n < 10; n++) 
                         {
                             if (Possible(y, x, n)) 
                             {
@@ -49,13 +47,13 @@ namespace SudokuSolver
         private static bool Possible(int y, int x, int n)
         {
             // find in same row
-            for (int i = 0; i < 9; i++)
+            for (var i = 0; i < 9; i++)
             {
                 if (INPUT[y, i] == n) return false;
             }
 
             // find in same column
-            for (int i = 0; i < 9; i++)
+            for (var i = 0; i < 9; i++)
             {
                 if (INPUT[i, x] == n) return false;
             }
@@ -64,9 +62,9 @@ namespace SudokuSolver
             var x0 = (x / 3) * 3;
             var y0 = (y / 3) * 3;
 
-            for (int i = 0; i < 3; i++)
+            for (var i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (var j = 0; j < 3; j++)
                 {
                     if (INPUT[y0+i, x0+j] == n) return false;
                 }
@@ -80,9 +78,9 @@ namespace SudokuSolver
             Console.WriteLine("Solution");
             Console.WriteLine("*****************");
 
-            for (int i = 0; i < input.GetLength(0); i++)
+            for (var i = 0; i < input.GetLength(0); i++)
             {
-                for (int j = 0; j < input.GetLength(1); j++)
+                for (var j = 0; j < input.GetLength(1); j++)
                 {
                     Console.Write(input[i, j] + " ");
                 }
